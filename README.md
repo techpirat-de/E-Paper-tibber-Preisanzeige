@@ -20,7 +20,7 @@ Jetzt könnt ihr euch über VNC verbinden und die Dateien hochladen. Dateien, di
 Mit einem Doppelklick auf eines der beiden Skripte öffnet sich der Editor. Damit könnt ihr die beiden Skripte testen. Sollten Fehlermeldungen kommen, diese systematisch abarbeiten.
 
 Bitte folgende Module installieren und importieren:
-PIL 
+PIL
 tkinter
 matplotlib
 requests
@@ -30,9 +30,10 @@ Python-Module werden mit "pip install PIL" installiert. In diesem Fall installie
 
 Um die Echtzeit-Preisanzeige zu bekommen, braucht ihr einen API-Key von Tibber. Euren Tibber API-Key bekommt ihr hier: https://developer.tibber.com/settings/access-token. Einfach dort mit euren normalen Zugangsdaten anmelden. Diesen müsst ihr an der entsprechenden Stelle in der Datei api_key.py eintragen.
 
-Beide Scripte manuell starten oder per crontab
+Beide Skripte manuell starten oder per crontab
 
-Mit "crontab -e" könnt ihr einen Job anlegen. Hier ein Beispiel:
+Mit " -e" könnt ihr einen Job anlegen. Hier ein Beispiel:
+
 0 * * * * python3 /home/joerg/Desktop/e-paper/speicher_chart_heute.py >/dev/null 2>&1
 3 * * * * python3 /home/joerg/Desktop/e-paper/examples/epd_7in5_V2_anzeigen.py >/dev/null 2>&1
 
@@ -46,43 +47,45 @@ Besucht mich auf YouTube: https://www.youtube.com/techpirat
 ##############################  
 
 English version:
-Sorry for the confusion, I will provide an English version of the text.
+This information is intended for all users of Tibber or those who want to become one with the electricity provider. Of course, you can also use the display for other purposes.
+I will show you the function of the display in a video: https://youtu.be/tMlHQ7NlYro
 
-Please correct the spelling in the following text:
+Hey, here's your individual invitation code for Tibber, the electricity provider that helps you understand and reduce your electricity consumption: https://invite.tibber.com/Techpirat. You will receive 100% green electricity and can cancel with a notice period of 2 weeks at any time. Try it out, and we both receive a €50 bonus for the Tibber store.
 
-This information is for all Tibber users or those who want to become one. Of course, you can also use the display for other purposes.
-I will show you how the display works in a video: https://youtu.be/tMlHQ7NlYro
+The idea is to display the current electricity price from Tibber on the Waveshare 7.5 Inch E-Paper Display. If you don't have a Waveshare 7.5 Inch E-Paper Display yet, you can buy it here: https://amzn.to/3Jxacx3. My code is created and tested with Python 3.9.2. You also need a Raspberry Pi Zero WH, which you can buy here: https://amzn.to/3JxkLA9.
 
-Hey, here's your personal invitation code for Tibber, the electricity supplier that helps you understand and reduce your electricity consumption: https://invite.tibber.com/Techpirat. You will receive 100% green electricity and can cancel at any time with a notice period of 2 weeks. Try it out and we both receive a €50 bonus for the Tibber store.
+First, you need to write an SD card with the operating system. It's best to use https://www.raspberrypi.com/software/operating-systems/.
+In the video, I show you how to set it up best. Don't forget to connect the display to the Raspberry Pi Zero.
 
-The idea is to display the current electricity price from Tibber on the Waveshare 7.5 Inch E-Paper Display. Don't have a Waveshare 7.5 Inch E-Paper Display yet? You can buy it here: https://amzn.to/3Jxacx3. My code was created and tested with Python 3.9.2. You also need a Raspberry Pi Zero WH, which you can buy here: https://amzn.to/3JxkLA9.
+You also need to find out the local IP address of the Raspberry Pi. You can find it via your router. In my case, it's 192.168.2.186. You can connect to the Raspberry Pi via VNC or SSH (with a terminal software) using the IP.
 
-First, you need to write an SD card with the operating system. You can use https://www.raspberrypi.com/software/operating-systems/ for this. In the video, I'll show you how to set it up. Don't forget to connect the display to the Raspberry Pi Zero.
-
-You also need to find the local IP address of the Raspberry Pi. You can find this on your router. In my case, it's 192.168.2.186. You can connect to the Raspberry Pi via VNC or SSH (with a terminal software) using the IP address.
-
-Once your Raspberry Pi Zero is installed and successfully connected to the Wi-Fi, you need to connect via SSH and call "sudo raspi-config" via the console and work through the following steps:
+Once your Raspberry Pi Zero is installed and successfully connected to the WLAN, you need to connect via SSH and call "sudo raspi-config" via the console and work through the following steps:
 Interface Options > VNC > Enable > Save. Before you restart, go back to the main menu:
 Display Options > VNC Resolution > and set your desired resolution here.
 I use 1280 x 1024.
 
-Now you can connect via VNC and upload the files. Files uploaded via VNC are saved on the desktop.
-Double-clicking one of the two scripts opens the editor, allowing you to test the two scripts. If error messages appear, work through them systematically.
+Now you can connect via VNC and upload the files. Files that you upload via VNC are saved on the desktop.
+Double-clicking on one of the two scripts opens the editor. You can use it to test the two scripts. If error messages appear, work through them systematically.
 
 Please install and import the following modules:
-PIL 
+PIL
 tkinter
 matplotlib
 requests
 numpy
 
-Python modules are installed with "pip install PIL". In this case, we install "PIL". The "waveshare_epd" module is included and does not need to be installed.
+Python modules are installed with "pip install PIL". In this case, we are installing "PIL". The "waveshare_epd" module is included and does not need to be installed.
 
-To get the real-time price display, you need an API key from Tibber. You can get your Tibber API key here: https://developer.tibber.com/settings/access-token. Simply log in with your normal access data. You must enter this at the appropriate place in the "api_key.py" file.
+To get real-time price display, you need an API key from Tibber. You can get your Tibber API key here: https://developer.tibber.com/settings/access-token. Simply log in there with your normal access data. You need to enter this in the appropriate place in the api_key.py file.
 
-You can create a job with "crontab -e". Here is an example:
-3**** python3 /home/joerg/Desktop/e-paper/speicher_chart_heute.py >/dev/null 2>&1
-This starts a script every 3 minutes after each full hour.
+Start both scripts manually or via crontab.
+
+With " -e", you can create a job. Here's an example:
+
+0 * * * * python3 /home/joerg/Desktop/e-paper/speicher_chart_heute.py >/dev/null 2>&1
+3 * * * * python3 /home/joerg/Desktop/e-paper/examples/epd_7in5_V2_anzeigen.py >/dev/null 2>&1
+
+This starts the first script at every full hour and the second one 3 minutes after every full hour.
 
 After starting, the display is updated every 60 minutes.
 
