@@ -34,14 +34,14 @@ def schreibe_display():
         bmp = Image.open(os.path.join(picdir, 'chart_von_heute.jpg'))
         Himage2.paste(bmp, (50,10))
         epd.display(epd.getbuffer(Himage2))
-        time.sleep(3600)
+        # time.sleep(3600)
         # Bereinige das Display um einbrennen zu vermeiden
-        logging.info("Clear...")
-        epd.init()
-        epd.Clear()
+        # logging.info("Clear...")
+        # epd.init()
+        # epd.Clear()
         # Versetze das Display in den Schlafmodus
-        logging.info("Goto Sleep...")
-        epd.sleep()
+        # logging.info("Goto Sleep...")
+        # epd.sleep()
         
     except IOError as e:
         logging.info(e)
@@ -50,5 +50,5 @@ def schreibe_display():
         logging.info("ctrl + c:")
         epd7in5_V2.epdconfig.module_exit()
     
-    schreibe_display()
+    # schreibe_display()
 schreibe_display()

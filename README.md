@@ -30,9 +30,13 @@ Python-Module werden mit "pip install PIL" installiert. In diesem Fall installie
 
 Um die Echtzeit-Preisanzeige zu bekommen, braucht ihr einen API-Key von Tibber. Euren Tibber API-Key bekommt ihr hier: https://developer.tibber.com/settings/access-token. Einfach dort mit euren normalen Zugangsdaten anmelden. Diesen müsst ihr an der entsprechenden Stelle in der Datei api_key.py eintragen.
 
+Beide Scripte manuell starten oder per crontab
+
 Mit "crontab -e" könnt ihr einen Job anlegen. Hier ein Beispiel:
-3**** python3 /home/joerg/Desktop/e-paper/speicher_chart_heute.py >/dev/null 2>&1
-Damit wird ein Skript immer um 3 Minuten nach jeder vollen Stunde gestartet.
+0 * * * * python3 /home/joerg/Desktop/e-paper/speicher_chart_heute.py >/dev/null 2>&1
+3 * * * * python3 /home/joerg/Desktop/e-paper/examples/epd_7in5_V2_anzeigen.py >/dev/null 2>&1
+
+Damit wird das eine Skript immer zur vollen und das zweite 3 Minuten nach jeder vollen Stunde gestartet.
 
 Nach dem Starten wird das Display alle 60 Minuten aktualisiert.
 
